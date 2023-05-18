@@ -5,7 +5,7 @@ Join a room (or group, idr what I called it) to view and send messages in that r
 Idk if it helps, my DB was PracticeDB > ChatDB > ChatLog > Document.
 
 Documents look like this:
-{
+```{
   "_id": {
     "$oid": "6458133b67305841455b7720"
   },
