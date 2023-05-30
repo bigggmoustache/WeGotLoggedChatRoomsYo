@@ -1,0 +1,43 @@
+﻿@page "/RegisterUser"
+@using BlazorServerSignalApp.Data
+@using BlazorServerSignalApp.Service
+
+
+<h3>RegisterUser</h3>
+<p>This is a mock user system, please don't put private information in here.</p>
+<br />
+<form @onsubmit = "Register">
+    <label for="name">Name:</label>
+    <input type="text" id="name" @bind="user.Username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" @bind="user.Email" required>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password" @bind="user.Password" required>
+
+    <button type="submit">Submit</button>
+</form>
+
+@if (userService.wasSuccessful == true)
+    {
+        <p>Here's your info! Don't forget it!</p>
+        <ul>
+            <li>@user.Username</li>
+            <li>@user.Email</li>
+            <li>@user.Password</li>
+        </ul>
+    }
+
+
+@code {
+
+    private User user = new User();
+    UserService userService = new UserService();
+
+
+    private void Register()
+    {
+        user = userService.RegisterUser(user);
+    }
+}

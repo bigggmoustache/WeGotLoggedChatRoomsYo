@@ -1,5 +1,6 @@
 ﻿using BlazorServerSignalApp.Data;
 using BlazorServerSignalApp.IService;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace BlazorServerSignalApp.Service
@@ -9,11 +10,11 @@ namespace BlazorServerSignalApp.Service
         private MongoClient _mongoClient = null;
         private IMongoDatabase _database = null;
         private IMongoCollection<ChatLog> _chatLogTable = null;
-        public ChatLogService()
+        public ChatLogService(IOptions<ChatLogDatabaseSettings> chatLogDatabaseSettings)
         {
-            _mongoClient = new MongoClient("mongodb://localhost:27017");
-            _database = _mongoClient.GetDatabase("ChatDB");
-            _chatLogTable = _database.GetCollection<ChatLog>("ChatLog");
+            _mongoClient = new MongoClient();
+            _database = _mongoClient.GetDatabase(chatLogDatabaseSettings.Value.DatabaseName);
+            _chatLogTable = _database.GetCollection<ChatLog>(chatLogDatabaseSettings.Value.CollectionName);
         }
         public string Delete(string chatLogId)
         {

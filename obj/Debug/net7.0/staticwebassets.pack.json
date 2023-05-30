@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\BlazorServerSignalApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\samue\\source\\repos\\BlazorServerSignalApp\\wwwroot\\css\\bootstrap\\ChatLayout.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\ChatLayout.css"
+    },
+    {
       "Id": "C:\\Users\\samue\\source\\repos\\BlazorServerSignalApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },

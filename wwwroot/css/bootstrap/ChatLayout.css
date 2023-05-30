@@ -1,0 +1,27 @@
+﻿#top-container {
+    width: 100vw;
+    height: 200px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 2px solid #ccc;
+}
+
+#server-container {
+    width: 75px;
+    background-color: teal;
+}
+
+#channel-container {
+    width: 300px;
+    background-color: lightblue;
+}
+
+#chat-container {
+    flex-grow: 1;
+    background-color: lightpink;
+}
+
+#user-container {
+    width: 300px;
+    background-color: lightgreen;
+}

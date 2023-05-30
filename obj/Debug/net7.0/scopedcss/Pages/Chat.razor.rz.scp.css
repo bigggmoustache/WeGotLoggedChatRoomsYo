@@ -1,0 +1,35 @@
+.top-container[b-fii5y99o6w] {
+    width: 100vw;
+    height: 100px;
+    background-color: teal;
+    padding: 20px;
+    border: 2px solid #ccc;
+}
+
+.server-container[b-fii5y99o6w] {
+    width: 75px;
+    background-color: teal;
+    height: 100vh; 
+    display: inline-block;
+}
+
+.channel-container[b-fii5y99o6w] {
+    width: 300px;
+    background-color: lightblue;
+    height: 100vh;
+    display: inline-block;
+}
+
+.chat-container[b-fii5y99o6w] {
+    flex-grow: 1;
+    background-color: lightpink;
+    height: 100vh;
+    display: inline-block;
+}
+
+.user-container[b-fii5y99o6w] {
+    width: 300px;
+    background-color: lightgreen;
+    height: 100vh;
+    display: inline-block;
+}

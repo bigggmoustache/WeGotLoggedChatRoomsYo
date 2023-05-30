@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vaLxY1TeJDX5inr6/ZIk727Gd3LgvfR0pywue2WZskE=",
+  "Hash": "HDYDHwr7AKPIsww6lOyeKbFZuUv2mC/da40bS5XK8XY=",
   "Source": "BlazorServerSignalApp",
   "BasePath": "_content/BlazorServerSignalApp",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\samue\\source\\repos\\BlazorServerSignalApp\\wwwroot\\css\\bootstrap\\ChatLayout.css",
+      "SourceId": "BlazorServerSignalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samue\\source\\repos\\BlazorServerSignalApp\\wwwroot\\",
+      "BasePath": "_content/BlazorServerSignalApp",
+      "RelativePath": "css/bootstrap/ChatLayout.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap\\ChatLayout.css"
     },
     {
       "Identity": "C:\\Users\\samue\\source\\repos\\BlazorServerSignalApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
