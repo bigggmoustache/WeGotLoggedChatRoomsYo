@@ -1,9 +1,26 @@
 ﻿@page "/"
+@inject BlazorServerSignalApp.IService.IUserService userService
 
 <h3>Landing Page</h3>
+<br />
 
-Mom would be so proud.
-
+@if(userService.IsLoggedIn)
+{
+    <p>You are logged in as @userService.CurrentUser.Username</p>
+    <p>Mom would be so proud. </p>
+}
+<br \>
+ToDo list
+<ul>
+    <li>change login to use email</li>
+    <li>add google auth</li>
+    <li>implement auth to block unauth chat</li>
+    <li>make server / channel stuff</li>
+    <li>oh boy</li>
+    <li>this list is getting too long</li>
+    <li>¯\_(ツ)_/¯</li>
+    <li>¯\_(ツ)_/¯</li>
+</ul>
 @code {
 
 }

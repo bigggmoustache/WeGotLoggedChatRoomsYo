@@ -3,32 +3,67 @@
 @using Microsoft.AspNetCore.SignalR.Client
 @inject NavigationManager Navigation
 @inject BlazorServerSignalApp.IService.IChatLogService chatLogService
+@inject BlazorServerSignalApp.IService.IUserService userService
+@inject BlazorServerSignalApp.IService.IServerService serverService
 @implements IAsyncDisposable
 
 <PageTitle>Chat</PageTitle>
 
 <div class="top-container">
     <span>
+        
         Idk what I'm doing lol ¯\_(ツ)_/¯ <span>@selectedGroup</span>
         <button @onclick="DeleteAllDocuments" disabled="@(!IsConnected)">nukeDB</button>
     </span>
     <br />
-    <label>
+    <input @bind="createServerName" />
+    <span><button @onclick="CreateServer">Create Server</button></span>
+    <input @bind="createChannelName" />
+    <span><button @onclick="CreateChannel">Create Channel</button></span>
+
+@*    <label>
         Group:
         <input @bind="groupInput" />
         <span><button @onclick="JoinGroup" disabled="@(!IsConnected)">Join</button></span>
-    </label>
-    <label>
+    </label>*@
+@*    <label>
         User:
         <input @bind="userInput" />
-    </label>
+    </label>*@
 </div>
+
+
+
 <div class="server-container">
-    Servers tbd
+    Server List
+    @if (userService.CurrentUser.Servers != null && userService.CurrentUser.Servers.Count() > 0)
+    {
+        <ul>
+            @foreach (Data.Server server in userService.CurrentUser.Servers)
+            {
+                <li><button @onclick="() => JoinServer(server.Name)">@server.Name</button></li>
+            }
+        </ul>
+    }
 </div>
+
+
+
 <div class="channel-container">
-    Channels tbd
+    Channel List
+    @if (serverService.CurrentServer.TextChannels != null && serverService.CurrentServer.TextChannels.Count() > 0)
+    {
+        <ul>
+            @foreach (Data.TextChannel channel in serverService.CurrentServer.TextChannels)
+            {
+                <li><button @onclick="() => JoinChannel(channel.Name)">@channel.Name</button></li>
+            }
+        </ul>
+    }
 </div>
+
+
+
 <div class="chat-container">
     <ul id="messagesList">
         @foreach (var message in messages)
@@ -51,19 +86,27 @@
 
 
 @code {
+
     ChatLog chatLog = new ChatLog();
+    Data.Server server = new Data.Server();
+    Data.Server currentServer = new Data.Server();
+    TextChannel textChannel = new TextChannel() { Name = "HAHA YOU CLOWNS" };
     List<ChatLog> groupLogs = new();
     List<string> groups = new() { "Default" };
     private HubConnection? hubConnection;
     private List<string> messages = new List<string>();
     private string? userInput;
     private string? messageInput;
-    private string groupInput;
+    private string? groupInput;
     private string groupSelected = "HAHA YOU CLOWNS";
     private string? selectedGroup;
+    private string? createServerName;
+    private string? createChannelName;
 
     protected override async Task OnInitializedAsync()
     {
+        server = userService.CurrentUser.Servers.FirstOrDefault();
+        serverService.JoinServer(server);
         GetGroupChatLogs();
         //GetGroups();
         hubConnection = new HubConnectionBuilder()
@@ -92,6 +135,7 @@
         await hubConnection.StartAsync();
     }
 
+    #region Chat
     private void GetGroupChatLogs()
     {
         messages.Clear();
@@ -138,6 +182,8 @@
         }
     }
 
+    #endregion
+
     private async Task JoinGroup()
     {
         await hubConnection.SendAsync("LeaveGroup", groupSelected);
@@ -156,4 +202,41 @@
             await hubConnection.DisposeAsync();
         }
     }
+
+    #region ServerAndChannel
+
+    public void CreateServer()
+    {
+        server.Name = createServerName;
+        server.TextChannels.Add(textChannel);
+        server.Users.Add(userService.CurrentUser);
+
+        try
+        {
+            serverService.CreateServer(server, textChannel.Name);
+        }
+        catch(Exception ex)
+        {
+
+        }
+        userService.AddServerToUser(userService.CurrentUser, server);
+
+    }
+    public async Task JoinServer(string serverName)
+    {
+        
+    }
+    public async Task CreateChannel()
+    {
+
+
+    }
+
+    public async Task JoinChannel(string channelName)
+    {
+
+    }
+
+
+    #endregion
 }

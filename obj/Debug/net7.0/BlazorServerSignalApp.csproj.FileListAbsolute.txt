@@ -10,6 +10,7 @@ C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\AWSSDK.Core.d
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\AWSSDK.SecurityToken.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\Blazored.SessionStorage.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\DnsClient.dll
+C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\Microsoft.AspNetCore.Components.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Forms.dll
@@ -31,6 +32,7 @@ C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\MongoDB.Drive
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\MongoDB.Libmongocrypt.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\SharpCompress.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\Snappier.dll
+C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\ZstdSharp.dll
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\samue\source\repos\BlazorServerSignalApp\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib

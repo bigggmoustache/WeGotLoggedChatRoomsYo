@@ -7,10 +7,11 @@
 }
 
 .server-container {
-    width: 75px;
+    width: 300px;
     background-color: teal;
-    height: 100vh; 
+    height: 100vh;
     display: inline-block;
+    overflow-y: auto;
 }
 
 .channel-container {
@@ -18,6 +19,7 @@
     background-color: lightblue;
     height: 100vh;
     display: inline-block;
+    overflow-y: auto;
 }
 
 .chat-container {
@@ -25,6 +27,7 @@
     background-color: lightpink;
     height: 100vh;
     display: inline-block;
+    overflow-y: auto;
 }
 
 .user-container {
@@ -32,4 +35,5 @@
     background-color: lightgreen;
     height: 100vh;
     display: inline-block;
+    overflow-y: auto;
 }

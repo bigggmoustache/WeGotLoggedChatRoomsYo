@@ -7,6 +7,11 @@ using BlazorServerSignalApp.IService;
 using BlazorServerSignalApp.Service;
 using MongoDB.Driver;
 using Blazored.SessionStorage;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.Extensions.Options;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,11 +23,25 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<IChatLogService, ChatLogService>();
 builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IServerService, ServerService>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddAuthentication().AddGoogle(options =>
+{
+    var clientId = builder.Configuration["GoogleSignIn:ClientId"];
+    options.ClientId = builder.Configuration["GoogleSignIn:ClientId"];
+    options.ClientSecret = builder.Configuration["GoogleSignIn:ClientSecret"];
+    options.ClaimActions.MapJsonKey("urn:google:profile", "link");
+    options.ClaimActions.MapJsonKey("urn:google:image", "picture");
+});
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<HttpContextAccessor>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<HttpClient>();
 builder.Services.AddBlazoredSessionStorage();
 
-builder.Services.AddResponseCompression(opts =>
+builder.Services.AddResponseCompression(options =>
 {
-    opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+    options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
         new[] { "application/octet-stream" });
 });
 
@@ -38,11 +57,19 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCookiePolicy();
+app.UseAuthentication();
 
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseEndpoints(endpoints =>
+    // other settings go here
+    endpoints.MapBlazorHub(options => {
+        options.WebSockets.CloseTimeout = new TimeSpan(1, 1, 1);
+        options.LongPolling.PollTimeout = new TimeSpan(1, 0, 0);
+    })
+);
 app.MapBlazorHub();
 app.MapHub<ChatHub>("/chathub");
 app.MapFallbackToPage("/_Host");

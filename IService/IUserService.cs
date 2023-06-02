@@ -1,14 +1,17 @@
 ﻿using BlazorServerSignalApp.Data;
+using System.Security.Claims;
 
 namespace BlazorServerSignalApp.IService
 {
     public interface IUserService
     {
-        public User CurrentUser { get; set; }
-        public bool WasSuccessful { get; set; }
-        public User RegisterUser(User user);
-        public User GetUser(string user);
-        public User Login(string username, string password);
+        public User? CurrentUser { get; set; }
+        public bool IsLoggedIn { get; set; }
+        public User GetUser(string email);
+        public void SetCurrentUser(string email);
         public void Logout();
+        public void ExternalLoginProcess(string userEmail);
+        public void AddServerToUser(User user, Server server);
+
     }
 }

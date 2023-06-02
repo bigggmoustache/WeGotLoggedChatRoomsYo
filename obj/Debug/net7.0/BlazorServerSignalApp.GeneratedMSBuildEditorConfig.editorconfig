@@ -28,16 +28,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/User/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dpbi5yYXpvcg==
+[C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/Server/ServerSearch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmVyXFNlcnZlclNlYXJjaC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/User/Logout.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/User/RegisterUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxSZWdpc3RlclVzZXIucmF6b3I=
+[C:/Users/samue/source/repos/BlazorServerSignalApp/Shared/LoginControl.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luQ29udHJvbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/samue/source/repos/BlazorServerSignalApp/Shared/SurveyPrompt.razor]
@@ -62,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope = b-d08mlh2ypl
 
 [C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/User/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/samue/source/repos/BlazorServerSignalApp/Pages/_Host.cshtml]
